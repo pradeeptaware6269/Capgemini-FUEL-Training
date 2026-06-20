@@ -2,8 +2,10 @@ package Assignment;
 
 import java.util.Scanner;
 
-public class Task2 {
-	// 2. Print all elements of a 2D array using nested for loops.
+//5. Find the largest element in a 2Darray.
+public class Task5 {
+
+	// Create a 3×3 array, take input fromthe user, and display thematrix.
 
 	public static void main(String[] args) {
 
@@ -27,16 +29,23 @@ public class Task2 {
 
 			}
 		}
+		int max = arr[0][0];
 
 		for (int i = 0; i < row; i++) {
 			System.out.print("| ");
 			for (int j = 0; j < col; j++) {
 
 				System.out.print(arr[i][j] + " ");
+
+				if (max < arr[i][j]) {
+					max = arr[i][j];
+				}
 			}
 			System.out.println(" |");
 			System.out.println();
+
 		}
+		System.out.println("The MAximum Value od the Array is the :" + max);
 
 	}
 }

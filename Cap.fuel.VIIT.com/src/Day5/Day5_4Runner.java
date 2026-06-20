@@ -1,6 +1,5 @@
 package Day5;
 
-import Day5.Day5_4;
 
 public class Day5_4Runner extends Day5_4 {
 	public void display() {
