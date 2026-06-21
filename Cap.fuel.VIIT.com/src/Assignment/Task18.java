@@ -1,9 +1,9 @@
 package Assignment;
 
-//13. Find the largest element in each row of a 2Darray.
 import java.util.Scanner;
 
-public class Task13 {
+// 18. Print the matrix in reverse order.
+public class Task18 {
 
 	public static void main(String[] args) {
 		int row, col;
@@ -22,21 +22,13 @@ public class Task13 {
 				arr[i][j] = sc.nextInt();
 			}
 		}
-		System.out.println("The array is Creted successfully ");
-		int i = 0, j = 0;
-		int count = 0;
-		int max = arr[i][j];
-		for (i = 0; i < row; i++) {
+		System.out.println("The arraya is Creted successfully ");
 
-			for (j = 0; j < col; j++) {
-				max = arr[i][j];
-				if (max < arr[i][j]) {
-					max = arr[i][j];
-				}
-				count++;
+		for (int i = row - 1; i >= 0; i--) {
+			for (int j = col - 1; j >= 0; j--) {
+				System.out.print(arr[i][j] + " ");
 			}
-			System.out.println("The MAX element of the Row " + (i + 1) + " : " + max);
-
+			System.out.println();
 		}
 
 	}

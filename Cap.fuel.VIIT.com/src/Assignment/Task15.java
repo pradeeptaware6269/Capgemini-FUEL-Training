@@ -1,9 +1,10 @@
 package Assignment;
 
-//13. Find the largest element in each row of a 2Darray.
 import java.util.Scanner;
 
-public class Task13 {
+// 15. Search for a given element in a 2Darray and display its row and column index.
+
+public class Task15 {
 
 	public static void main(String[] args) {
 		int row, col;
@@ -23,22 +24,24 @@ public class Task13 {
 			}
 		}
 		System.out.println("The array is Creted successfully ");
+
 		int i = 0, j = 0;
-		int count = 0;
-		int max = arr[i][j];
+
+		System.out.println("Enter the Element ,do you want to search :");
+		int s_Ele = sc.nextInt();
+
 		for (i = 0; i < row; i++) {
 
 			for (j = 0; j < col; j++) {
-				max = arr[i][j];
-				if (max < arr[i][j]) {
-					max = arr[i][j];
+				if (arr[i][j] == s_Ele) {
+					System.out.println("The Element is found Here postion is " + i + " " + j);
+					break;
 				}
-				count++;
+
+				else {
+					continue;
+				}
 			}
-			System.out.println("The MAX element of the Row " + (i + 1) + " : " + max);
-
 		}
-
 	}
-
 }
