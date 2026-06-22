@@ -2,8 +2,9 @@ package Assignment;
 
 import java.util.Scanner;
 
-//27. Swap the first row with the last row.
-public class Task27 {
+//28. Swap the first column with the last column.
+
+public class Task28 {
 
 	public static void main(String[] args) {
 		int row, col;
@@ -33,14 +34,14 @@ public class Task27 {
 			}
 			System.out.println();
 		}
-		// for swapping
-		for (j = 0; j < col; j++) {
-			int temp = arr[0][j];
-			arr[0][j] = arr[row - 1][j];
-			arr[row - 1][j] = temp;
+		// for swapping first column to last column
+		for (i = 0; i < row; i++) {
+			int temp = arr[i][0];
+			arr[i][0] = arr[i][col - 1];
+			arr[i][col - 1] = temp;
 		}
 
-		System.out.println("After the swapping the fisrt and last row we can simply swap it :");
+		System.out.println("After the swapping the first col and last col we can simply swap it :");
 		System.out.println("Now we can print Array ok !! ");
 
 		for (i = 0; i < row; i++) {
@@ -48,7 +49,6 @@ public class Task27 {
 				System.out.print(arr[i][j] + " ");
 			}
 			System.out.println();
-
 		}
 	}
 }
