@@ -12,9 +12,9 @@ public class Day5_7 {
 	}
 
 	public static void main(String[] args) {
-		
 
-		Main d = new Main();
+		Day5_7 obj = new Day5_7();
+		Main d = obj.new Main();
 		d.disp();
 	}
 

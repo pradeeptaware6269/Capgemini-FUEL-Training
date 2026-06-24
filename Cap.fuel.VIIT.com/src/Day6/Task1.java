@@ -14,9 +14,9 @@ public class Task1 {
 
 		while (true) {
 
-			System.out.println("Enter the --- 1 --- for the TO insert the element into the Array List :");
-			System.out.println("Enter the --- 2 --- for the Remove element from the Array List");
-			System.out.println("Enter the --- 3 --- for the Dispaly the Arrat List : ");
+			System.out.println("Enter the --- 1 --- for the TO insert the element into the Array List : ");
+			System.out.println("Enter the --- 2 --- for the Remove element from the Array List        : ");
+			System.out.println("Enter the --- 3 --- for the Display the Array List                    : ");
 			System.out.println("EXIT : ");
 
 			System.out.print("Enetr your choice Here :");
@@ -24,7 +24,6 @@ public class Task1 {
 
 			switch (ch) {
 			case 1:
-
 				System.out.println("Enter the element for inserting the ArrayList :");
 				int num = sc.nextInt();
 
@@ -40,7 +39,6 @@ public class Task1 {
 
 				System.out.println("Enter the Index for removing from the ArrayList :");
 				int num1 = sc.nextInt();
-
 				lst.remove(Integer.valueOf(num1));
 				System.out.println("The Given Element is removed ");
 				break;
@@ -50,20 +48,18 @@ public class Task1 {
 				System.out.println("Here we can simply display the elemenyts :");
 				Iterator itr = lst.iterator();
 				while (itr.hasNext()) {
-					System.err.println(itr.next());
+					System.out.println(itr.next());
 				}
 				break;
 
 			case 4:
-				System.out.println("------------------   SYSTEM EXIT    ----------------------- ");
+				System.out.println("-----------------   SYSTEM EXIT    ------------------ ");
 				System.exit(0);
 
 			default:
-				System.out.println("Something wents Wrong ");
+				System.out.println(" Something   Wents   Wrong ");
 
 			}
 		}
-
 	}
-
 }
