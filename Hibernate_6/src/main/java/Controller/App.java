@@ -40,7 +40,7 @@ public class App {
 		a3.setLocation("Mumba");
 		a3.setType("Saving");
 		session.persist(a3);
-		
+		ArrayList<Account> l1 = new ArrayList<Account>();
 		l1.add(a1);
 		l1.add(a2);
 		l1.add(a3);
