@@ -17,7 +17,7 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
-    <mapping class="Model.Student"></mapping>
-    <mapping class="Model.Course"></mapping>
+    <mapping class="Model.Employee"></mapping>
+    <mapping class="Model.Department"></mapping>
   </session-factory>
 </hibernate-configuration>
