@@ -24,4 +24,19 @@ public class UserController {
     public User getUser(@PathVariable Long id) {
         return userService.getUserrepository(id);
     }
+
+
+    @DeleteMapping("/{id}")
+    public String getDelete(@PathVariable Long id)
+    {
+        userService.deleteUser(id);
+        return "User Deleted Successfully:"+id;
+    }
+
+    @PutMapping("/{id}")
+    public User getupdate(@PathVariable Long id,@RequestBody User user)
+    {
+        user.setId(id);
+        return userService.saveUser(user);
+    }
 }
