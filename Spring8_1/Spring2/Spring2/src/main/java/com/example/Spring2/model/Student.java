@@ -7,7 +7,6 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="student")
-@DiscriminatorValue("STUDENT")
 public class Student extends User {
 
     private int age;

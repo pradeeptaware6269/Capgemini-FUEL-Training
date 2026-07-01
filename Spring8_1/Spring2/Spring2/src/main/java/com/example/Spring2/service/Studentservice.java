@@ -5,8 +5,9 @@ import com.example.Spring2.model.User;
 
 public interface Studentservice {
 
-    Student saveData(Student user);
-    Student getData(Long id);
+    Student saveStudent(Student student);
 
-    void getDelete(Long id);
+    Student getStudent(Long id);
+
+    void deleteStudent(Long id);
 }

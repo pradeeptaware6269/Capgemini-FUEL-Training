@@ -15,17 +15,18 @@ public class StudentserviceImpl implements Studentservice {
     public StudentRepo studentrepo;
 
     @Override
-    public Student saveData(Student user) {
-        return studentrepo.save(user);
+    public Student saveStudent(Student student) {
+
+        return studentrepo.save(student);
     }
 
     @Override
-    public Student getData(Long id) {
+    public Student getStudent(Long id) {
         return studentrepo.findById(id).orElse(null);
     }
 
     @Override
-    public void getDelete(Long id) {
+    public void deleteStudent(Long id) {
         studentrepo.deleteById(id);
 
     }
