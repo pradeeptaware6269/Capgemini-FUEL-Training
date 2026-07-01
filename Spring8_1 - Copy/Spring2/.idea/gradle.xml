@@ -4,11 +4,11 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/Spring2/Spring2" />
-        <option name="gradleJvm" value="openjdk-26" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Spring2" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/Spring2/Spring2" />
+            <option value="$PROJECT_DIR$/Spring2" />
           </set>
         </option>
       </GradleProjectSettings>

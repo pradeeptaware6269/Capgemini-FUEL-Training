@@ -29,30 +29,53 @@ public class StudentController {
     @GetMapping("/{id}")
     public Student getdata(@PathVariable Long id)
     {
-        try
-        {
-            Optional<Student> student=studentRepo.findById(id);
-            if(student.isPresent())
-            {
-                return student.get();
-            }
-            throw new RuntimeException("Here data is not found of that Student :"+id);
-        }catch (RuntimeException e)
-        {
-            System.out.println("The Exception is :"+e.getMessage());
-            return null;
-        }finally {
-            System.out.println("I am always Executed .... ");
-        }
-       // return studentservice.getStudent(id);
+         return studentservice.getStudent(id);
+        //But Instead of this we can use this one also
+
+//        try
+//        {
+//            Optional<Student> student=studentRepo.findById(id);
+//            if(student.isPresent())
+//            {
+//                return student.get();
+//            }
+//            throw new RuntimeException("Here data is not found of that Student :"+id);
+//        }catch (RuntimeException e)
+//        {
+//            System.out.println("The Exception is :"+e.getMessage());
+//            return null;
+//        }finally {
+//            System.out.println("I am always Executed .... ");
+//        }
+
     }
+
+
 
     @DeleteMapping("/{id}")
     public String getDelete(@PathVariable Long id)
     {
         studentservice.deleteStudent(id);
         return "-------- Here data is deleteed --------------  : "+id;
+//        try
+//        {
+//            Optional<Student> student=studentRepo.findById(id);
+//            if(student.isPresent())
+//            {
+//                studentservice.deleteStudent(id);
+//                return "The Data is deleted Successfully :"+id;
+//            }
+//            throw new RuntimeException("Here data is not found of that Student :"+id);
+//        }catch (RuntimeException e)
+//        {
+//            System.out.println("The Exception is :"+e.getMessage());
+//            return null;
+//        }finally {
+//            System.out.println(" I am from getDelete methods --- i am always Executed .... ");
+//        }
     }
+
+
 
     @PutMapping("/{id}")
     public User getUpdate(@RequestBody Student student,@PathVariable Long id)

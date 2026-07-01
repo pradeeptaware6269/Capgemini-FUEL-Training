@@ -9,9 +9,6 @@ import com.example.Spring2.service.Studentservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.rmi.StubNotFoundException;
-import java.util.Optional;
-
 @Service
 public class StudentserviceImpl implements Studentservice {
 
@@ -25,15 +22,12 @@ public class StudentserviceImpl implements Studentservice {
     }
 
     @Override
-    public Student getStudent(Long id)
-    {
-        return studentrepo.findById(id).orElseThrow(() -> new StudentNotFoundException("Not found ID so we cant moving the forword ... : "+id));
-    }
+    public Student getStudent(Long id) {
+        return studentrepo.findById(id).orElse(null);
 
     @Override
-    public void deleteStudent(Long id)
-    {
-       Student student=studentrepo.findById(id).orElseThrow(()-> new StudentNotFoundException("Here that id is not present Thats why we are not able to delete it .... the id is : "+id));
-       studentrepo.deleteById(id);
+    public void deleteStudent(Long id) {
+        studentrepo.deleteById(id);
+
     }
 }
