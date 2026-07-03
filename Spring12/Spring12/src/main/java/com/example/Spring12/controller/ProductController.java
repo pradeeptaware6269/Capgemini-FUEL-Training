@@ -31,6 +31,10 @@ public class ProductController {
     @PostMapping
     public ResponseEntity<ProductResponceDTO> createdata(@RequestBody ProductRequestDTO productRequestDTO)
     {
+        System.out.println("The password in producuctRequest DTO :"+productRequestDTO.getPassword());
+        Product product=new Product();
+        System.out.println("The Password in Product class :"+product.getPassword());
+
         ProductResponceDTO saveProduct=productService.saveProduct(productRequestDTO);
         return  ResponseEntity.status(HttpStatus.CREATED).body(saveProduct);
     }
@@ -62,6 +66,8 @@ public class ProductController {
     @PutMapping("/{id}")
     public ResponseEntity<ProductResponceDTO> update(@RequestBody ProductRequestDTO productRequestDTO, @PathVariable Long id)
     {
+
+
         return ResponseEntity.ok(productService.updateProduct(productRequestDTO,id));
     }
 
