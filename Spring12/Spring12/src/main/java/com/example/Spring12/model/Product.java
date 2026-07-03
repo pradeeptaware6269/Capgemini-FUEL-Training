@@ -26,7 +26,7 @@ public class Product extends BaseEntity{
 
     @NotBlank(message = "Password is required")
     @Size(min = 7, max = 70, message = "Password must be between 8 and 20 characters")
-    
+
 //    @Pattern(
 //            regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$%^&+=!]).*$",
 //            message = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character"

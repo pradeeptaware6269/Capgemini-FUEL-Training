@@ -70,7 +70,8 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Autowired
-    private ModelMapper modelMapper;@Override
+    private ModelMapper modelMapper;
+    @Override
     public ProductResponceDTO saveProduct(ProductRequestDTO productRequestDTO)
     {
         productRequestDTO.setPassword(productRequestDTO.getPassword().trim());
@@ -81,29 +82,31 @@ public class ProductServiceImpl implements ProductService {
         return modelMapper.map(saveedProduct, ProductResponceDTO.class);
     }
 
-
-
-
-
-
-
     @Override
     public ProductResponceDTO getProduct(Long id) {
 
-//        Product product = productRepo.findById(id)
-//                .orElseThrow(() ->
-//                        new RuntimeException("The Product is not found : " + id));
-
-        Product product = productDAO.findById(id);
-        ProductResponceDTO dto = new ProductResponceDTO(product);
-
-        dto.setId(product.getId());
-        dto.setPname(product.getPname());
-        dto.setPrice(product.getPrice());
-        dto.setQuantity(product.getQuantity());
-
-        return dto;
+        return null;
     }
+
+
+//
+//    @Override
+//    public ProductResponceDTO getProduct(Long id) {
+//
+////        Product product = productRepo.findById(id)
+////                .orElseThrow(() ->
+////                        new RuntimeException("The Product is not found : " + id));
+//
+//        Product product = productDAO.findById(id);
+//        ProductResponceDTO dto = new ProductResponceDTO(product);
+//
+//        dto.setId(product.getId());
+//        dto.setPname(product.getPname());
+//        dto.setPrice(product.getPrice());
+//        dto.setQuantity(product.getQuantity());
+//
+//        return dto;
+//    }
 
 
 
@@ -150,7 +153,7 @@ public class ProductServiceImpl implements ProductService {
 //                        new ProductNotFoundException("Product not found with id: " + id));
 
         Product product = productDAO.findById(id);
-                product.setPname(productRequestDTO.getPname());
+        product.setPname(productRequestDTO.getPname());
         product.setPrice(productRequestDTO.getPrice());
         product.setQuantity(productRequestDTO.getQuantity());
 
