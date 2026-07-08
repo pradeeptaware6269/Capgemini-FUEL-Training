@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb18ca64-d00c-40d6-b2f5-8251bc5a40ce" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Spring10 (2)/Spring10/Spring10/src/main/java/com/example/Spring10/Exception/EmployeeNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring10 (2)/Spring10/Spring10/src/main/java/com/example/Spring10/Exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/controller/AccountController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/exception/AccountNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/exception/InsufficientBalanceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/model/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/repository/AccountRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/service/AccountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring5/Spring5/src/main/java/com/example/Spring5/serviceimpl/AccountServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spring6/src/main/java/com/example/Spring6/DTO/ProductRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spring6/src/main/java/com/example/Spring6/DTO/ProductResponceDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spring6/src/main/java/com/example/Spring6/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spring6/src/main/java/com/example/Spring6/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spring6/src/main/java/com/example/Spring6/repository/ProductRepo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spring6/src/main/java/com/example/Spring6/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Spring6/src/main/java/com/example/Spring6/serviceImpl/ProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring10 (2)/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring10 (2)/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring10 (2)/Spring10/Spring10/src/main/java/com/example/Spring10/controller/Employeecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring10 (2)/Spring10/Spring10/src/main/java/com/example/Spring10/controller/Employeecontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring10 (2)/Spring10/Spring10/src/main/java/com/example/Spring10/serviceImpl/EmployeeServiceImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring10 (2)/Spring10/Spring10/src/main/java/com/example/Spring10/serviceImpl/EmployeeServiceImp.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/Spring6">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/Spring6">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Spring6" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="package-info" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3FtWvn8GMhY8kkmIdBcvkUG0BSV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build Spring6.executor": "Run",
+    "Gradle.Spring6 [:com.example.Spring6.Spring6Application.main()].executor": "Run",
+    "Gradle.Spring6 [dependencies].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "Spring Boot.Spring6Application.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Aditi/Desktop/Capgemini_Fuel/Spring6",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Spring6Application">
+    <configuration name="Spring6Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.Spring6.Spring6Application" />
+      <module name="com.example.Spring6.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.Spring6.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Spring6 [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Spring6" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Spring6Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="com.example.Spring6.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Spring6.Spring6Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Spring6 [dependencies]" />
+        <item itemvalue="Application.Spring6Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb18ca64-d00c-40d6-b2f5-8251bc5a40ce" name="Changes" comment="" />
+      <created>1782895078846</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1782895078846</updated>
+      <workItem from="1782895079956" duration="12123000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
