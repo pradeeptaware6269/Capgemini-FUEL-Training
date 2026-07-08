@@ -19,8 +19,8 @@ public class EmailController {
     public String sendMail() {
 
         emailService.sendWelcomeEmail(
-                "aditijadhav1032004@gmail.com",
-                "Adi Jadhav"
+                "enter the mail here ",
+                "  enter name here "
         );
 
         return "Mail Sent Successfully";
