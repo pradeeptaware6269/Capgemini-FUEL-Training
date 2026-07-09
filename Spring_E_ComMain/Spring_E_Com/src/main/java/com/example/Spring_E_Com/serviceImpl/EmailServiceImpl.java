@@ -8,81 +8,83 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-
-
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender mailSender;
 
     @Override
-    public void sendRegisterEmail(String to, String name) {
+    public boolean sendRegisterEmail(String to, String name) {
 
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("pradeeptaware081@gmail.com");
+
+        // Optional
+        // message.setFrom("pradeeptaware081@gmail.com");
+
         message.setTo(to);
         message.setSubject("Welcome to E-Commerce");
-        mailSender.send(message);
 
         message.setText("""
-        Dear %s,
+                Dear %s,
 
-        🎉 Congratulations!
+                🎉 Congratulations!
 
-        Your account has been created successfully, and we're excited to welcome you to our E-Commerce platform.
+                Your account has been created successfully, and we're excited to welcome you to our E-Commerce platform.
 
-        You can now:
-        • Browse thousands of products
-        • Add items to your cart
-        • Place orders securely
-        • Track your orders in real-time
-        • Manage your profile and account settings
+                You can now:
+                • Browse thousands of products
+                • Add items to your cart
+                • Place orders securely
+                • Track your orders in real-time
+                • Manage your profile and account settings
 
-        Thank you for choosing us. We look forward to providing you with an amazing shopping experience!
+                Thank you for choosing us. We look forward to providing you with an amazing shopping experience!
 
-        If you have any questions or need assistance, feel free to contact our support team.
+                If you have any questions or need assistance, feel free to contact our support team.
 
-        Happy Shopping! 🛍️
+                Happy Shopping! 🛍️
 
-        Best Regards,
-
-        E-Commerce Team
-        """.formatted(name));
+                Best Regards,
+                E-Commerce Team
+                """.formatted(name));
 
         mailSender.send(message);
+        return true;
     }
 
-
     @Override
-    public void sendLoginEmail(String to, String role) {
+    public boolean sendLoginEmail(String to, String role) {
 
         SimpleMailMessage message = new SimpleMailMessage();
+
+        // Optional
+        // message.setFrom("pradeeptaware081@gmail.com");
 
         message.setTo(to);
         message.setSubject("Login Successful - E-Commerce");
 
         message.setText("""
-            Dear Customer,
+                Dear Customer,
 
-            We noticed a successful login to your E-Commerce account.
+                We noticed a successful login to your E-Commerce account.
 
-            Login Details:
-            ---------------------------------
-            Email : %s
-            Role  : %s
-            Status: Login Successful
-            ---------------------------------
+                Login Details:
+                ---------------------------------
+                Email : %s
+                Role  : %s
+                Status: Login Successful
+                ---------------------------------
 
-            If this was you, no further action is required.
+                If this was you, no further action is required.
 
-            If you do not recognize this login, please change your password immediately and contact our support team.
+                If you do not recognize this login, please change your password immediately and contact our support team.
 
-            Thank you for shopping with us!
+                Thank you for shopping with us!
 
-            Best Regards,
+                Best Regards,
+                E-Commerce Team
+                """.formatted(to, role));
 
-            E-Commerce Team
-            """.formatted(to, role));
-
-            mailSender.send(message);
+        mailSender.send(message);
+        return true;
     }
 }

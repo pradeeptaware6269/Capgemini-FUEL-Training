@@ -5,6 +5,7 @@ import com.example.Spring_E_Com.dto.auth.Request.LoginRequestDTO;
 import com.example.Spring_E_Com.dto.auth.Request.RegisterRequestDTO;
 import com.example.Spring_E_Com.dto.auth.Responce.LoginResponseDTO;
 import com.example.Spring_E_Com.dto.auth.Responce.RegisterResponceDTO;
+import com.example.Spring_E_Com.exception.UserNotFoundException;
 import com.example.Spring_E_Com.model.User;
 import com.example.Spring_E_Com.serviceImpl.Auth_ServiceImpl;
 import com.example.Spring_E_Com.serviceImpl.EmailServiceImpl;
@@ -32,21 +33,24 @@ public class Auth_Controller {
     public ResponseEntity<RegisterResponceDTO> saveRegidster(@Valid  @RequestBody RegisterRequestDTO registerRequestDTO)
     {
         RegisterResponceDTO saveRegister = authService.register(registerRequestDTO);
-        emailService.sendRegisterEmail(saveRegister.getEmail(),saveRegister.getFirstName());
-        return  ResponseEntity.status(HttpStatus.CREATED).body(saveRegister);
+        if(emailService.sendRegisterEmail(saveRegister.getEmail(),saveRegister.getFirstName())) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(saveRegister);
+        }
+        else {
+            throw new RuntimeException("Email Sending problem ");
+        }
     }
-
 
     // for the login
-
     @PostMapping("/login")
-    public ResponseEntity<LoginResponseDTO> saveLogin(@Valid @RequestBody LoginRequestDTO loginRequestDTO)
-    {
-        LoginResponseDTO saveLogin =authService.login(loginRequestDTO);
-        emailService.sendLoginEmail(saveLogin.getEmail(),saveLogin.getRole());
-        return  ResponseEntity.status(HttpStatus.ACCEPTED).body(saveLogin);
+    public ResponseEntity<LoginResponseDTO> saveLogin(@Valid @RequestBody LoginRequestDTO loginRequestDTO) {
+        LoginResponseDTO saveLogin = authService.login(loginRequestDTO);
+        if (emailService.sendLoginEmail(saveLogin.getEmail(), saveLogin.getRole())) {
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(saveLogin);
+        } else {
+            throw new RuntimeException("Email server is not connecting ....");
+        }
     }
-
 
     @GetMapping("/{email}")
     public ResponseEntity<RegisterResponceDTO> getCustomer(@PathVariable String email) {
@@ -64,17 +68,12 @@ public class Auth_Controller {
     }
 
 
+    @DeleteMapping("/{id}")
+    public String deleteCustomer(@PathVariable Long id) {
 
+        authService.deleteUser(id);
 
-
-
-
-//    @DeleteMapping("/{id}")
-//    public String deleteCustomer(@PathVariable Long id) {
-//
-//        e_com_serviceImpl.deleteCustomer(id);
-//
-//        return "Customer deleted successfully."+id;
-//    }
+        return "User deleted successfully."+id;
+    }
 
 }
