@@ -33,23 +33,16 @@ public class Auth_Controller {
     public ResponseEntity<RegisterResponceDTO> saveRegidster(@Valid  @RequestBody RegisterRequestDTO registerRequestDTO)
     {
         RegisterResponceDTO saveRegister = authService.register(registerRequestDTO);
-        if(emailService.sendRegisterEmail(saveRegister.getEmail(),saveRegister.getFirstName())) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(saveRegister);
-        }
-        else {
-            throw new RuntimeException("Email Sending problem ");
-        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(saveRegister);
+
     }
 
     // for the login
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> saveLogin(@Valid @RequestBody LoginRequestDTO loginRequestDTO) {
         LoginResponseDTO saveLogin = authService.login(loginRequestDTO);
-        if (emailService.sendLoginEmail(saveLogin.getEmail(), saveLogin.getRole())) {
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(saveLogin);
-        } else {
-            throw new RuntimeException("Email server is not connecting ....");
-        }
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(saveLogin);
+
     }
 
     @GetMapping("/{email}")

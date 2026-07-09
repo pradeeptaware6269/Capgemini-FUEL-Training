@@ -7,36 +7,28 @@ import com.example.Spring_E_Com.exception.RoleNotFoundException;
 import com.example.Spring_E_Com.exception.UserNotFoundException;
 import com.example.Spring_E_Com.model.Role;
 import com.example.Spring_E_Com.model.User;
-import com.example.Spring_E_Com.repository.ProductRepository;
 import com.example.Spring_E_Com.repository.RoleRepository;
 import com.example.Spring_E_Com.repository.UserRepository;
 import com.example.Spring_E_Com.role.RoleName;
 import com.example.Spring_E_Com.service.Auth_Service;
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@AllArgsConstructor
 @Service
 public class Auth_ServiceImpl implements Auth_Service {
 
-    @Autowired
-    private UserRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final ModelMapper modelMapper;
+    private final EmailServiceImpl emailService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private ModelMapper modelMapper;
-
-    @Autowired
-    private ProductRepository productRepository;
 
     @Override
     public RegisterResponceDTO register(RegisterRequestDTO registerRequestDTO) {
@@ -54,6 +46,8 @@ public class Auth_ServiceImpl implements Auth_Service {
 
         User saveRegistration = userRepository.save(user);
 
+        emailService.sendRegisterEmail(saveRegistration.getEmail(),saveRegistration.getFirstName());
+
         return modelMapper.map(saveRegistration, RegisterResponceDTO.class);
     }
 
@@ -64,8 +58,6 @@ public class Auth_ServiceImpl implements Auth_Service {
         RegisterResponceDTO dto=modelMapper.map(user,RegisterResponceDTO.class);
         return dto;
     }
-
-
 
 
     @Override
@@ -82,6 +74,8 @@ public class Auth_ServiceImpl implements Auth_Service {
         response.setEmail(user.getEmail());
         response.setPassword(user.getPassword());
         response.setRole(user.getRole().getName());
+
+        emailService.sendLoginEmail(response.getEmail(), response.getRole());
 
         return response;
     }

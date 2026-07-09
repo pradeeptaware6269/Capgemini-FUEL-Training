@@ -6,20 +6,20 @@ import com.example.Spring_E_Com.exception.ProductNotFoundException;
 import com.example.Spring_E_Com.model.Product;
 import com.example.Spring_E_Com.repository.ProductRepository;
 import com.example.Spring_E_Com.service.Product_Service;
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@AllArgsConstructor
 @Service
 public class Product_ServiceImpl implements Product_Service {
 
-    @Autowired
-    private ModelMapper modelMapper;
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ModelMapper modelMapper;
+
+    private final ProductRepository productRepository;
 
     // For inserting the data into the product data
     @Override
