@@ -9,6 +9,9 @@ import java.util.List;
 public interface UserService {
 //    AuthResponseDTO updateUser(Long id, RegisterRequestDTO dto);
 //
+//    ''
+//    ''
+//    updateProfiel
 //    AuthResponseDTO getRegisterData(String email);
 //
 //    List<User> getAllCustomers();

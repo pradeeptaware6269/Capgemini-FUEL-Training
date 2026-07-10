@@ -36,6 +36,8 @@ public class User extends BaseEntity {
     @Builder.Default
     private Boolean emailVerified = false;
 
+    private Boolean accountNonLoacked=true;
+
     @Column(length = 15)
     private String phone;
 

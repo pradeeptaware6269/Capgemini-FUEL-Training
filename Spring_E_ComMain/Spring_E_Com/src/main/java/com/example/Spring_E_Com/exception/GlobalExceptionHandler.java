@@ -13,5 +13,21 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
 
+    @ExceptionHandler(ResourceAlraedyExistsException.class)
+    public ResponseEntity<String> handleException1(ResourceAlraedyExistsException exception1)
+    {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception1.getMessage());
+    }
 
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<String> handleException2(ForbiddenException exception)
+    {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
+
+    @ExceptionHandler(UnauthorisedException.class)
+    public ResponseEntity<String> handleException3(UnauthorisedException exception)
+    {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
 }

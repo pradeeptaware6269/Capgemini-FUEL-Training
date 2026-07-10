@@ -18,15 +18,4 @@ public class AuthResponseDTO {
     private String role;
 
 
-//    public AuthResponseDTO() {
-//    }
-
-//    public AuthResponseDTO(User user) {
-//        this.id = user.getId();
-//        this.firstName = user.getFirstName();
-//        this.lastName = user.getLastName();
-//        this.email = user.getEmail();
-//        this.phone = user.getPhone();
-//
-//    }
 }

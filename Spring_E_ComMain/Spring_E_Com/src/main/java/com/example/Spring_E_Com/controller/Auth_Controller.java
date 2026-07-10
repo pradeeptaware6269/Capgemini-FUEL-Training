@@ -39,26 +39,26 @@ public class Auth_Controller {
 
     }
 
-    @GetMapping("/{email}")
-    public ResponseEntity<AuthResponseDTO> getCustomer(@PathVariable String email)
-    {
-        return ResponseEntity.ok(authService.getRegisterData(email));
-    }
+//    @GetMapping("/{email}")
+//    public ResponseEntity<AuthResponseDTO> getCustomer(@PathVariable String email)
+//    {
+//        return ResponseEntity.ok(authService.getRegisterData(email));
+//    }
+
+//
+//    @GetMapping
+//    public ResponseEntity<List<User>> getAllCustomer()
+//    {
+//        List<User> customers = authService.getAllCustomers();
+//        return ResponseEntity.ok(customers);
+//    }
 
 
-    @GetMapping
-    public ResponseEntity<List<User>> getAllCustomer()
-    {
-        List<User> customers = authService.getAllCustomers();
-        return ResponseEntity.ok(customers);
-    }
-
-
-    @DeleteMapping("/{id}")
-    public String deleteCustomer(@PathVariable Long id)
-    {
-        authService.deleteUser(id);
-        return "User deleted successfully."+id;
-    }
+//    @DeleteMapping("/{id}")
+//    public String deleteCustomer(@PathVariable Long id)
+//    {
+//        authService.deleteUser(id);
+//        return "User deleted successfully."+id;
+//    }
 
 }
