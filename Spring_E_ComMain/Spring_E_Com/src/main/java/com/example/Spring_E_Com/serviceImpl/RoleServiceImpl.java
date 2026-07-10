@@ -2,8 +2,7 @@ package com.example.Spring_E_Com.serviceImpl;
 
 import com.example.Spring_E_Com.dto.role.RoleRequestDTO;
 import com.example.Spring_E_Com.dto.role.RoleResponceDTO;
-import com.example.Spring_E_Com.exception.ProductNotFoundException;
-import com.example.Spring_E_Com.exception.RoleNotFoundException;
+import com.example.Spring_E_Com.exception.ResourceNotFoundException;
 import com.example.Spring_E_Com.model.Role;
 import com.example.Spring_E_Com.repository.RoleRepository;
 import com.example.Spring_E_Com.service.Role_Servies;
@@ -12,10 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
-public class Role_ServiceImpl implements Role_Servies {
+public class RoleServiceImpl implements Role_Servies {
 
     @Autowired
     private ModelMapper modelMapper;
@@ -28,7 +26,7 @@ public class Role_ServiceImpl implements Role_Servies {
 
         if(roleRepository.existsByName(roleRequestDTO.getName()))
         {
-            throw  new RoleNotFoundException("Role Alredy Present ");
+            throw  new ResourceNotFoundException("Role Alredy Present ");
         }
         Role role = modelMapper.map(roleRequestDTO, Role.class);
         Role savedRole = roleRepository.save(role);
@@ -39,7 +37,7 @@ public class Role_ServiceImpl implements Role_Servies {
     @Override
     public RoleResponceDTO getData(Long id) {
 
-        Role role = roleRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Role not found with id : " + id));
+        Role role = roleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Role not found with id : " + id));
         return modelMapper.map(role, RoleResponceDTO.class);
     }
 
@@ -57,7 +55,7 @@ public class Role_ServiceImpl implements Role_Servies {
     public RoleResponceDTO updateRoel(Long id, RoleRequestDTO roleRequestDTO) {
 
         Role role = roleRepository.findById(id).orElseThrow(() ->
-                        new ProductNotFoundException("Role not found with id : " + id));
+                        new ResourceNotFoundException("Role not found with id : " + id));
 
         role.setName(roleRequestDTO.getName());
         role.setDescription(roleRequestDTO.getDescription());
@@ -70,7 +68,7 @@ public class Role_ServiceImpl implements Role_Servies {
     @Override
     public String deleteRole(Long id) {
 
-        Role role = roleRepository.findById(id).orElseThrow(() -> new ProductNotFoundException("Role not found with id : " + id));
+        Role role = roleRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Role not found with id : " + id));
         roleRepository.delete(role);
         return "Role deleted successfully with id : " + id;
     }

@@ -1,4 +1,4 @@
-package com.example.Spring_E_Com.dto.auth.Request;
+package com.example.Spring_E_Com.dto.auth;
 
 import com.example.Spring_E_Com.model.User;
 import jakarta.validation.constraints.Email;
@@ -20,6 +20,7 @@ public class RegisterRequestDTO {
 
     @NotBlank(message = "Email is required")
     @Email(message = "Please enter a valid email")
+    @Size(max = 100,message = "Email can not excced the 100 characters")
     private String email;
 
     @NotBlank(message = "Phone number is required")
@@ -30,7 +31,7 @@ public class RegisterRequestDTO {
     private String phone;
 
     @NotBlank(message = "Password is required")
-    @Size(min = 8, max = 80, message = "Password must be between 8 and 80 characters")
+    @Size(min = 8, max = 20, message = "Password must be between 8 and 80 characters")
     private String password;
 
     public RegisterRequestDTO() {

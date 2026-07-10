@@ -2,19 +2,18 @@ package com.example.Spring_E_Com.serviceImpl;
 
 import com.example.Spring_E_Com.dto.product.ProductRequestDTO;
 import com.example.Spring_E_Com.dto.product.ProductResponseDTO;
-import com.example.Spring_E_Com.exception.ProductNotFoundException;
+import com.example.Spring_E_Com.exception.ResourceNotFoundException;
 import com.example.Spring_E_Com.model.Product;
 import com.example.Spring_E_Com.repository.ProductRepository;
 import com.example.Spring_E_Com.service.Product_Service;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @AllArgsConstructor
 @Service
-public class Product_ServiceImpl implements Product_Service {
+public class ProductServiceImpl implements Product_Service {
 
 
     private final ModelMapper modelMapper;
@@ -34,7 +33,7 @@ public class Product_ServiceImpl implements Product_Service {
     // for getting the product data
     @Override
     public ProductResponseDTO getBYId(Long id) {
-        Product product=productRepository.findById(id).orElseThrow(()->new ProductNotFoundException("---- Product not Found Exception ---- "));
+        Product product=productRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("---- Product not Found Exception ---- "));
         ProductResponseDTO dto=modelMapper.map(product,ProductResponseDTO.class);
         return dto;
     }
@@ -49,7 +48,7 @@ public class Product_ServiceImpl implements Product_Service {
     public ProductResponseDTO update(Long id, ProductRequestDTO dto) {
 
         Product product = productRepository.findById(id)
-                .orElseThrow(() -> new ProductNotFoundException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
 
         product.setProductName(dto.getProductName());
         product.setDescription(dto.getDescription());
@@ -67,7 +66,7 @@ public class Product_ServiceImpl implements Product_Service {
     @Override
     public String delete(Long id) {
 
-        Product product=productRepository.findById(id).orElseThrow(() -> new ProductNotFoundException(" -- Product not Found -- "));
+        Product product=productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(" -- Product not Found -- "));
         productRepository.delete(product);
         return "ID  is deleted Successfulyy ......"+id;
 

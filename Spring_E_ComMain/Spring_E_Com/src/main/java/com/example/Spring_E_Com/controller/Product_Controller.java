@@ -2,8 +2,7 @@ package com.example.Spring_E_Com.controller;
 
 import com.example.Spring_E_Com.dto.product.ProductRequestDTO;
 import com.example.Spring_E_Com.dto.product.ProductResponseDTO;
-import com.example.Spring_E_Com.model.Product;
-import com.example.Spring_E_Com.serviceImpl.Product_ServiceImpl;
+import com.example.Spring_E_Com.serviceImpl.ProductServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class Product_Controller {
 
     @Autowired
-    private Product_ServiceImpl productService;
+    private ProductServiceImpl productService;
 
     // For The creating the product data
     @PostMapping("/product")

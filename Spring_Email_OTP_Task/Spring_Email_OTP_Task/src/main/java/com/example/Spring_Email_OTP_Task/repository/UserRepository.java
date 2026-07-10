@@ -1,16 +1,17 @@
-package com.example.Spring_E_Com.repository;
-
-import java.util.Optional;
+package com.example.Spring_Email_OTP_Task.repository;
 
 
-import com.example.Spring_E_Com.model.User;
+import com.example.Spring_Email_OTP_Task.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+    Optional<User> findByEmail(String email);
+
     boolean existsByEmail(String email);
 
-    Optional<User> findByEmail(String email);
 }

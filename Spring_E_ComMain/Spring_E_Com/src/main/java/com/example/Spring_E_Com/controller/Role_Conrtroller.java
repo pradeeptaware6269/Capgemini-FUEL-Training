@@ -2,9 +2,8 @@ package com.example.Spring_E_Com.controller;
 
 import com.example.Spring_E_Com.dto.role.RoleRequestDTO;
 import com.example.Spring_E_Com.dto.role.RoleResponceDTO;
-import com.example.Spring_E_Com.serviceImpl.Role_ServiceImpl;
+import com.example.Spring_E_Com.serviceImpl.RoleServiceImpl;
 import jakarta.validation.Valid;
-import org.hibernate.internal.build.AllowPrintStacktrace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +11,7 @@ public class Role_Conrtroller {
 
 
     @Autowired
-    private Role_ServiceImpl roleService;
+    private RoleServiceImpl roleService;
 
     @PostMapping
     public RoleResponceDTO create(@Valid @RequestBody RoleRequestDTO roleRequestDTO)
