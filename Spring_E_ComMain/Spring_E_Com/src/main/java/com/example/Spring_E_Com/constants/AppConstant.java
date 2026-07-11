@@ -9,4 +9,5 @@ public final class AppConstant {
     public static final String REGISTER_SUCCESS = "Registration successful";
 
     public static final String LOGIN_SUCCESS = "Login successful";
+
 }

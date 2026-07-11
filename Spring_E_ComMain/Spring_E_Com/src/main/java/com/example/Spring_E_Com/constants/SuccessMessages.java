@@ -1,6 +1,7 @@
 package com.example.Spring_E_Com.constants;
 
 public final class SuccessMessages {
+
     private SuccessMessages() {
 
     }

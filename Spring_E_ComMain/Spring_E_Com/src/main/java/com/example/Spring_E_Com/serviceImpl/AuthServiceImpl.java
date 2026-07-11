@@ -37,17 +37,23 @@ public class AuthServiceImpl implements Auth_Service {
     public AuthResponseDTO register(RegisterRequestDTO registerRequestDTO) {
 //1
         String firstName = normalizeText(registerRequestDTO.getFirstName());
+
         String lastName = normalizeText(registerRequestDTO.getLastName());
 
         String email = normalizeEmail(registerRequestDTO.getEmail());
 
         String rawpassword = normalizeText(registerRequestDTO.getPassword());
+
         String phone = normalizeText(registerRequestDTO.getPhone());
 //2
         registerRequestDTO.setFirstName(firstName);
+
         registerRequestDTO.setLastName(lastName);
+
         registerRequestDTO.setEmail(email);
+
         registerRequestDTO.setPassword(enocodePassowrd(rawpassword));
+
         registerRequestDTO.setPhone(phone);
 
         if (userRepository.existsByEmail(email)) {
@@ -74,8 +80,7 @@ public class AuthServiceImpl implements Auth_Service {
 //6
         emailService.sendRegisterEmail(
                 savedUser.getEmail(),
-                savedUser.getFirstName()
-        );
+                savedUser.getFirstName());
 //7
         return buildAuthResponse(user, SuccessMessages.REGSITRATION_SUCCESSFUL);
     }
@@ -87,42 +92,22 @@ public class AuthServiceImpl implements Auth_Service {
         //1 Normalize input
         String email = normalizeEmail(loginRequestDTO.getEmail());
         String rawPassword = normalizeText(loginRequestDTO.getPassword());
-
         //2 Find user by email
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() ->
-                        new UnauthorisedException(ErrorMessages.INVALID_EMAIL_OR_PASSWORD));
+        User user = findUserEmail(email);
 
-        //3 Check account is active
-        if (!user.getIsActive()) {
-            throw new UnauthorisedException(ErrorMessages.ACCOUNT_DISABLED);
-        }
-
-        //4 Check email is verified
-//        if (!user.getEmailVerified()) {
-//            throw new UnauthorisedException(ErrorMessages.EMAIL_NOT_VERIFIED);
-//        }
-
-        //5 Check password
+        //3 Check password
         boolean passwordMatches = passwordEncoder.matches(rawPassword, user.getPassword());
-
         if (!passwordMatches) {
             throw new UnauthorisedException(ErrorMessages.INVALID_EMAIL_OR_PASSWORD);
         }
-
-        if(!user.getAccountNonLoacked())
-        {
-            throw  new UnauthorisedException(ErrorMessages.ACCOUNT_LOCKED);
-        }
-
-        //6 Send login email
+        //4 Send login email
         emailService.sendLoginEmail(
                 user.getEmail(),
                 user.getFirstName()
         );
-
-        //7 Return response
-        return buildAuthResponse(user, SuccessMessages.LOGIN_SUCCESSFUL);
+        //5 calling the validate user for login insted of the verify some componants
+        validateUserFroLogin(user,rawPassword);
+        return buildAuthResponse(user,SuccessMessages.LOGIN_SUCCESSFUL);
     }
 
     private Boolean active=true;
@@ -130,31 +115,66 @@ public class AuthServiceImpl implements Auth_Service {
     private Boolean accountNonLocked=true;
 
 
-    //helper method
-    //for the email removing the wid spaces and convert it into the lowaer case
+    // -------------  Here We Creating The Helper Method For The Code Optimization --------------------
+
+    //for the email removing the wide spaces and convert it into the lower case
+
     private String normalizeEmail(String email) {
         return email.trim().toLowerCase();
     }
 
+
     //for the text removing the wide spaces
+
     private String normalizeText(String value) {
+
         return value.trim();
     }
 
     //for the text removing the wide spaces
     private String enocodePassowrd(String value) {
+
         return value.trim();
     }
-
 
     //Helper Method for the return the meassge and data
     private AuthResponseDTO buildAuthResponse(User user, String message) {
 
         return AuthResponseDTO.builder()
+                .id(user.getId())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
                 .email(user.getEmail())
                 .role(user.getRole().getName())
                 .message(message)
                 .build();
+    }
+
+
+    //
+    private void validateUserFroLogin(User user,String meaasge)
+    {
+        // here we can checked where the email is varified or not
+//        if (!user.getEmailVerified()) {
+//            throw new UnauthorisedException(ErrorMessages.EMAIL_NOT_VERIFIED);
+//        }
+
+        //Check account is active
+        if (!user.getIsActive()) {
+            throw new UnauthorisedException(ErrorMessages.ACCOUNT_DISABLED);
+        }
+
+        //check whether the account is loacked or not
+        if(!user.getAccountNonLoacked())
+        {
+            throw  new UnauthorisedException(ErrorMessages.ACCOUNT_LOCKED);
+        }
+    }
+
+    // here we are created the helper method  for finding the email(cheking email present or not)
+    private  User findUserEmail(String email)
+    {
+        return userRepository.findByEmail(email).orElseThrow(()-> new UnauthorisedException(ErrorMessages.INVALID_EMAIL_OR_PASSWORD));
     }
 }
 
