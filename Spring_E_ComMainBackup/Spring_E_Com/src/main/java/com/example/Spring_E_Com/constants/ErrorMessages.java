@@ -13,4 +13,5 @@ public final class ErrorMessages {
     public static final String ACCOUNT_DISABLED = "Your account has been disabled. Please contact support.";
     public static final String ACCOUNT_LOCKED = "Your account has been locked. Please contact support.";
     public static final String EMAIL_NOT_VERIFIED = "Please verify your email before logging in.";
+
 }

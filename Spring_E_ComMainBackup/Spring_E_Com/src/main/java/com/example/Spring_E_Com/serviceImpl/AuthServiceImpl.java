@@ -1,7 +1,6 @@
 package com.example.Spring_E_Com.serviceImpl;
 
-import com.example.Spring_E_Com.security.jwt.JwtService;
-import org.springframework.security.core.Authentication;
+import com.example.Spring_E_Com.constants.AppConstant;
 import com.example.Spring_E_Com.constants.ErrorMessages;
 import com.example.Spring_E_Com.constants.SuccessMessages;
 import com.example.Spring_E_Com.dto.auth.AuthResponseDTO;
@@ -14,116 +13,101 @@ import com.example.Spring_E_Com.model.User;
 import com.example.Spring_E_Com.repository.RoleRepository;
 import com.example.Spring_E_Com.repository.UserRepository;
 import com.example.Spring_E_Com.role.RoleName;
-import com.example.Spring_E_Com.security.UserPrincipal;
 import com.example.Spring_E_Com.service.Auth_Service;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.security.Principal;
 
 @RequiredArgsConstructor
 @Service
 public class AuthServiceImpl implements Auth_Service {
 
     private final UserRepository userRepository;
-
     private final RoleRepository roleRepository;
     private ModelMapper modelMapper;
     private final PasswordEncoder passwordEncoder;
     private final EmailServiceImpl emailService;
-    private final AuthenticationManager authenticationManager;
-    private final JwtService jwtService;
 
 
     @Transactional
     @Override
     public AuthResponseDTO register(RegisterRequestDTO registerRequestDTO) {
-
-        // 1. Normalize input
+//1
         String firstName = normalizeText(registerRequestDTO.getFirstName());
+
         String lastName = normalizeText(registerRequestDTO.getLastName());
 
         String email = normalizeEmail(registerRequestDTO.getEmail());
 
-        String rawPassword = normalizeText(registerRequestDTO.getPassword());
-        String phone = normalizeText(registerRequestDTO.getPhone());
+        String rawpassword = normalizeText(registerRequestDTO.getPassword());
 
-        // 2. Check if email already exists
+        String phone = normalizeText(registerRequestDTO.getPhone());
+//2
+        registerRequestDTO.setFirstName(firstName);
+
+        registerRequestDTO.setLastName(lastName);
+
+        registerRequestDTO.setEmail(email);
+
+        registerRequestDTO.setPassword(enocodePassowrd(rawpassword));
+
+        registerRequestDTO.setPhone(phone);
+
         if (userRepository.existsByEmail(email)) {
             throw new ResourceNotFoundException(ErrorMessages.EMAIL_ALREADY_EXISTS);
         }
-
-        // 3. Get CUSTOMER role
+//3
         Role customerRole = roleRepository.findByName(RoleName.CUSTOMER.name())
                 .orElseThrow(() ->
                         new ResourceNotFoundException(ErrorMessages.ROLE_NOT_FOUND));
-
-        // 4. Encode password
-        String encodedPassword = passwordEncoder.encode(rawPassword);
-
-        // 5. Create User
+//4
         User user = User.builder()
                 .firstName(firstName)
                 .lastName(lastName)
                 .email(email)
                 .phone(phone)
-                .password(encodedPassword)
+                .password(passwordEncoder.encode(rawpassword))
                 .isActive(true)
                 .emailVerified(false)
-                .accountNonLocked(true)
-                .accountNotExpired(true)
-                .credentialsNonExpired(true)
+                .accountNonLoacked(true)
                 .role(customerRole)
                 .build();
-
-        // 6. Save User
+//5
         User savedUser = userRepository.save(user);
-
-        // 7. Generate JWT Token
-        UserPrincipal userPrincipal = new UserPrincipal(savedUser);
-
-        String token = jwtService.generateToken(userPrincipal);
-
-        // 8. Save Token (Optional)
-        savedUser.setToken(token);
-        userRepository.save(savedUser);
-
-        // 9. Send Email (Optional)
-        // emailService.sendRegisterEmail(savedUser.getEmail(), savedUser.getFirstName());
-
-
-        // 10. Return response
-        return buildAuthResponse(savedUser, SuccessMessages.REGSITRATION_SUCCESSFUL);
+//6
+        emailService.sendRegisterEmail(
+                savedUser.getEmail(),
+                savedUser.getFirstName());
+//7
+        return buildAuthResponse(user, SuccessMessages.REGSITRATION_SUCCESSFUL);
     }
 
     @Transactional(readOnly = true)
     @Override
     public AuthResponseDTO login(LoginRequestDTO loginRequestDTO) {
 
-        // 1. Normalize input
+        //1 Normalize input
         String email = normalizeEmail(loginRequestDTO.getEmail());
         String rawPassword = normalizeText(loginRequestDTO.getPassword());
+        //2 Find user by email
+        User user = findUserEmail(email);
 
-        // 2. Authenticate user
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(email, rawPassword)
+        //3 Check password
+        boolean passwordMatches = passwordEncoder.matches(rawPassword, user.getPassword());
+        if (!passwordMatches) {
+            throw new UnauthorisedException(ErrorMessages.INVALID_EMAIL_OR_PASSWORD);
+        }
+        //4 Send login email
+        emailService.sendLoginEmail(
+                user.getEmail(),
+                user.getFirstName()
         );
-
-        // 3. Get authenticated user
-        UserPrincipal principal = (UserPrincipal) authentication.getPrincipal();
-        User user = principal.getUser();
-
-        // 4. (Optional) Send login notification email
-
-        emailService.sendLoginEmail(user.getEmail(), user.getFirstName());
-
-        // 5. Build and return response
-        return buildAuthResponse(user, SuccessMessages.LOGIN_SUCCESSFUL);
+        //5 calling the validate user for login insted of the verify some componants
+        validateUserFroLogin(user,rawPassword);
+        return buildAuthResponse(user,SuccessMessages.LOGIN_SUCCESSFUL);
     }
 
     private Boolean active=true;
@@ -162,11 +146,8 @@ public class AuthServiceImpl implements Auth_Service {
                 .lastName(user.getLastName())
                 .email(user.getEmail())
                 .role(user.getRole().getName())
-                .token(user.getToken())
                 .message(message)
                 .build();
-
-
     }
 
 
@@ -184,7 +165,7 @@ public class AuthServiceImpl implements Auth_Service {
         }
 
         //check whether the account is loacked or not
-        if(!user.getAccountNonLocked())
+        if(!user.getAccountNonLoacked())
         {
             throw  new UnauthorisedException(ErrorMessages.ACCOUNT_LOCKED);
         }

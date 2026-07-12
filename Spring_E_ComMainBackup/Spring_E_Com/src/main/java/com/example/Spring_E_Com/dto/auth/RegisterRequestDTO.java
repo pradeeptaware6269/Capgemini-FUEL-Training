@@ -33,7 +33,6 @@ public class RegisterRequestDTO {
             regexp = "^[6-9][0-9]{9}$",
             message = "Please enter a valid 10-digit mobile number"
     )
-
     private String phone;
 
     @NotBlank(message = "Password is required")

@@ -32,10 +32,10 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	runtimeOnly 'org.postgresql:postgresql'
 
-	// JWT (JJWT 0.12.7)
-	implementation 'io.jsonwebtoken:jjwt-api:0.12.7'
-	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.7'
-	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.7'
+	// JWT
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
 
 	// ModelMapper
 	implementation 'org.modelmapper:modelmapper:3.2.1'
@@ -53,7 +53,6 @@ dependencies {
 	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-
 }
 
 tasks.named('test') {
