@@ -1,0 +1,60 @@
+/* 
+h3{
+    background-color: bisque;
+    color: black;
+    font-size: medium;
+}
+
+
+h2{
+    background-color:rgb(243, 221, 191);
+    color: black;
+    font-size: large;
+    font-weight: 100;
+    font-display: 200;
+    font-variant: normal;
+    background-size: contain;
+    backface-visibility: unset;
+
+} */
+
+/* *{
+    background-color: violet;
+    color: black;
+}
+
+h1{
+    background-color: bisque;
+    color: black;
+}
+
+#id{
+    background-color: yellow;
+    color: blue;
+}
+
+.mca{
+    background-color: beige;
+    color: black;
+} */
+*
+/* {
+    background-color: black;
+} */
+
+h2{
+    color: black;
+    text-align: center;
+    text-decoration: dotted;
+    text-transform: uppercase;
+    letter-spacing: normal;
+}
+
+
+p{
+    font-size: xx-large;
+    font-weight: 100;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    font-style: italic;
+}
