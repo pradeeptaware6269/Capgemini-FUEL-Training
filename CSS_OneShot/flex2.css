@@ -1,0 +1,31 @@
+div{
+border: solid;
+    height: 100vh;
+   
+}
+
+.section1
+{
+     display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+
+
+}
+.section2
+{
+     display: flex;
+    
+    align-items: center;
+    justify-content: space-between;
+
+
+
+}
+div{
+    border: solid;
+    height: 200px;
+    width: 200px;
+
+}
