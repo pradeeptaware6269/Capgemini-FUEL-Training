@@ -1,0 +1,178 @@
+@font-face {
+    font-family: "pradeep";
+    src: url("./assets/fonts/dm-mono/DMMono-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "pradeep";
+}
+
+.body {
+    display: flex;
+    background-color: #f7f4ef;
+}
+
+.bodySection1 {
+    width: 20vw;
+    height: 100%;
+    border: 2px solid red;
+    padding: 20px;
+}
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 100%;
+    height: 50px;
+}
+
+
+
+
+.sub-title {
+    color: rgb(231, 171, 98);
+    font-style: italic;
+}
+
+.title {
+    color: black;
+    font-size: 20px;
+}
+
+nav {
+    margin-top: 30px;
+    border: solid; 
+    color: #f7f4ef;
+    background-color: #f7f4ef;
+    height: 500px;
+    width: 100%;
+}
+
+nav a {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: black;
+    padding: 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+nav a img {
+    width: 22px;
+    height: 22px;
+}
+
+nav a:hover {
+    background-color:#f7f4ef;
+}
+
+section article{
+    align-items: end;
+}
+
+
+.temperature {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(228, 202, 98);
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+
+
+    
+}
+
+.tempearture_text p {
+    font-size: x-small;
+    margin: 3px 0;
+}
+
+.temperature img {
+    right: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.temperaturelow{
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+
+}
+.localWeather
+{
+    margin-top: 30px;
+    font-size: 15px;
+    color: gray;
+    line-height: 20px;
+    
+}
+
+
+
+
+
+main{
+    border: solid yellow;
+    height: 100%;
+    width: 80vw;
+}
+
+.sec1{
+    border:solid red ;
+    height: 10vh;
+}
+
+.sec2{
+    border: solid green;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sec3{
+    border: solid pink;
+    height: 30vh;
+}
+
+.middle2card{
+    border: solid purple;
+    height: 300px;
+    background-color: green;
+    width: 300px;
+}
+
+.middeleDiv1{
+    background-color: aliceblue;
+    position: absolute;
+    right: 50%;
+    transform: rotate(80deg);
+}
+
+.middeleDiv2{
+    background-color: aquamarine;
+    position: absolute;
+    left: 50%;
+    transform: rotate(280deg);
+}
