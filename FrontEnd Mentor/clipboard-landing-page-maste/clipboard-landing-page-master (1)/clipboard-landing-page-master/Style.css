@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    font-family: 'Bai Jamjuree', sans-serif;
+    color: hsl(210, 10%, 33%);
+    line-height: 1.6;
+    
+}
+.headclass{
+    text-align: center;
+    border: solid white;
+    height: 100vh;
+    background: url("./images/bg-header-desktop.png")no-repeat top;
+    padding: 100px;
+}
+.headclass img{
+    margin-bottom: 30px;
+}
+
+.headclass h1{
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
+
+.headclass p{
+    width: 500px;
+    margin: auto;
+    color: hsl(200, 7%, 75%);
+}
+
+.buttons{
+    margin-top: 40px;
+    margin-bottom: 85px
+}
+
+.buttons button{
+    border: none;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+main{
+    
+    border: solid white;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+}
+
+.mainSec1
+{
+    margin-top: 40px;
+    margin-right: 130px;
+    margin-left: 30px;
+
+}
+
+.mainSec2
+{
+    margin-top: 130px;
+    margin-right: 130;
+    
+
+}
+
+.secDiv{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.artDiv1{
+    margin-top: 40px;
+}
+
+.artDiv2{
+    margin-top: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+p{
+    color: rgb(203, 203, 203);
+}
+article{
+    border: solid white;
+    height: 100vh;
+    /* background-color:purple; */
+    text-align: center;
+
+}
+.supercharge-div{
+    border: solid white;
+    height: 105vh;
+    background-color:white;
+    
+}
+
+.divSec1
+{
+    text-align: center;
+}
+.divSec1 h1{
+    margin-top: 10px;
+
+}
+
+.divSec1 p{
+    margin-top: 20px;
+    margin-bottom: 70px;
+
+}
+
+
+
+.bodyartdiv
+{
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.beforeFoot{
+    text-align: center;
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    min-height: 180px;
+}
+
+
+.footerlogo img{
+    width: 80px;
+}
+
+.footerlinks table{
+    border-collapse: collapse;
+}
+
+.footerlinks td{
+    padding: 10px 40px;
+    font-size: 18px;
+    color: #444;
+    cursor: pointer;
+}
+
+
+

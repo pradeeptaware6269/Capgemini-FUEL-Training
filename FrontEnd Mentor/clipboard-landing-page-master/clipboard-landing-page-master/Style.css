@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    font-family: 'Bai Jamjuree', sans-serif;
+    color: hsl(210, 10%, 33%);
+    line-height: 1.6;
+    text-align: center;
+}
+.headclass{
+    border: solid green;
+    height: 100vh;
+    background: url("./images/bg-header-desktop.png")no-repeat top;
+    padding: 100px;
+}
+.headclass img{
+    margin-bottom: 30px;
+}
+
+.headclass h1{
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
+
+.headclass p{
+    width: 500px;
+    margin: auto;
+    color: hsl(200, 7%, 75%);
+}
+
+.buttons{
+    margin-top: 40px;
+}
+
+.buttons button{
+    border: none;
+    color: rgb(202, 65, 65);
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+main{
+    border: solid yellow;
+    height: 100vh;
+    background-color:yellow;
+}
+article{
+    border: solid purple;
+    height: 100vh;
+    background-color:purple;
+
+}
+.supercharge-div{
+    border: solid white;
+    height: 100vh;
+    background-color:white;
+    
+}
+.ios-div{
+    border: solid blue;
+    height: 50vh;
+    background-color:blue;
+}
+footer{
+    border: solid violet;
+    height: 50vh;
+    background-color:violet;
+}
