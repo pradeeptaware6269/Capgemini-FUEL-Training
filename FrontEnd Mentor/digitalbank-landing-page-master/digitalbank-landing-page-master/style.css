@@ -13,7 +13,7 @@ nav img{
     
 }
 nav{
-    border: solid red;
+    border-bottom: solid gray;
     background-color: white;
     display: flex;
     align-items: center;
@@ -51,15 +51,55 @@ font-size: large;
 }
 
 .main_section_div1{
-    border: solid #35D06F;
-    background-color: red;
+    border: solid white;
+    background-color: white;
     width: 40%;
+    
 }
 .main_section_div2{
     border: solid #35D06F;
     background-color: rgb(78, 255, 29);
     width: 60%;
 }
+
+.imageBackground{
+    height: 600px;
+    margin-left: 300px;
+    margin-bottom: 60px;
+}
+
+.div_article1
+{
+    margin-top: 100px;
+    font-size: 40px;
+    margin-left: 80px;
+    margin-right: 200px;
+}
+
+.div_p1{
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-right: 200px;
+    color: gray;
+
+}
+
+.div_button1{
+    margin-top: 20px;
+    margin-left: 80px;
+    border: solid;
+    border-color: white;
+    border-radius: 20px;
+    font-size: small;
+    color: white;
+    height: 40px;
+    width: 130px;
+    background-color: #3be78e;
+    padding: 4px ;
+    
+
+}
+
 
 .main_Class_2{
     border: #680df1;
