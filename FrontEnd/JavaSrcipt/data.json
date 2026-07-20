@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Apple",
+        "model":14,
+        "price":85000,
+        "avilable":true
+    },
+    
+    {
+        "name":"Samsung",
+        "model":"s25",
+        "price":125000,
+        "avilable":true
+    },
+    
+    {
+        "name":"vivo",
+        "model":"x14",
+        "price":95000,
+        "avilable":true
+    }
+]
