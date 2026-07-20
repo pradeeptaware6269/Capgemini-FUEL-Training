@@ -4,7 +4,10 @@
 
 // console.log("I Am sycronous.....")
 
-  //  JSON get Data using the fake Store API
+
+
+
+  //   ----------------  JSON get Data using the fake Store API  ---------------------------
 
 // async function dummyData(){
 //     let getdata=fetch('https://fakestoreapi.com/products')
@@ -29,19 +32,21 @@
 // }
 // dummydata1();
 
-// async function dummydata1() {
+
+// async function dummydata2() {
 //     let getdata=fetch('https://dummyjson.com/carts');
 //     console.log(getdata)
 //     let res=await getdata;
 //     let data=await res.json();
 //     console.log(data);
 // }
-// dummydata1();
+// dummydata2();
 
 
 async function userdata()
 {
     let getdata=fetch('./data.json')
+    
     console.log(getdata) // peding
     
     let res=await getdata;
