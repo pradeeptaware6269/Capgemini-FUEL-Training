@@ -32,7 +32,14 @@ const UserRegister = () => {
   function registerHandleSubmit(e) {
     e.preventDefault();
 
+    if(registerData.password !==registerData.confirmPassword && registerData.password.length>9)
+    {
+      alert("Passowrd and Conferm Passowrd do not match or length short");
+      return;
+    }
+
     console.log(registerData);
+    alert("Registration Successfully....")
   }
 
   
