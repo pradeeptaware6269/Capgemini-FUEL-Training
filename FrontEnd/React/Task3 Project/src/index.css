@@ -1,0 +1,7 @@
+body{
+    background-color: rgb(190, 164, 215);
+}
+
+body:hover{
+    background-color: gray;
+}

@@ -1,0 +1,47 @@
+.box{
+    background-color: pink;
+    border-radius: 20px;
+    width: 500px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2px 2px 20px;
+}
+
+.box h1{
+    text-align: center;
+}
+.box:hover{
+    background-color: black;
+    color: white;
+}
+
+.button1{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button1 button{
+    background-color: blue;
+    margin: 8px;
+    color: white;
+    height: 25px;
+    width: 90px;
+    box-shadow: 2px 2px 20px black;
+}
+
+.button1 button:hover{
+    background-color: green;
+    color: black;
+}
+.product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 500vh;
+    align-content: space-evenly;
+    gap: 20px;
+}
+
