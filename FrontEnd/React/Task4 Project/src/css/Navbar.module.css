@@ -16,15 +16,12 @@
     margin: 7px;
     text-align: center;
     justify-content: space-evenly;
+    padding: 10px;
 }
 
-.navlink:hover{
-    color:white;
-    border: green;
-    height: 20px;
-    width: 70px;
+.navlink:hover {
+    color: white;
+    padding: 10px;
     border-radius: 10px;
-    background-color: 
-    rgb(64, 63, 63);
-
+    background-color: rgb(64, 63, 63);
 }
