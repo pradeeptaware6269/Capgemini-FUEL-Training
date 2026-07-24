@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.navbar{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.navlink{
+    color: gold;
+    text-decoration: none;
+    margin: 7px;
+    text-align: center;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.navlink:hover {
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(64, 63, 63);
+}
